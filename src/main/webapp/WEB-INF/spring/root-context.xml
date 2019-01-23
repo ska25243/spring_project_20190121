@@ -12,19 +12,20 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-<bean id ="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver">
-	</property>
-	<property name="url" value="jdbc:oracle:thin:@oracle12gr1.ctvk0mela5hc.us-west-2.rds.amazonaws.com:1521:MOIM">
-	</property>
-	<property name="username" value="lesson0509">
-	</property>
-	<property name="password" value="studymoimi">
-	</property>
-</bean>	
-<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-	<property name="dataSource" ref="dataSource"></property>
-	<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
-</bean>	
-
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy">
+			</property>
+			<property name="url" value="jdbc:log4jdbc:oracle:thin:@oracle12gr1.ctvk0mela5hc.us-west-2.rds.amazonaws.com:1521:MOIM"></property>
+		<property name ="username" value ="lesson0509"></property>
+		<property name="password" value="studymoimi"></property>
+	</bean>	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+		<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
+	</bean>	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+	<context:component-scan base-package="org.isk.persistence"></context:component-scan>
 </beans>
