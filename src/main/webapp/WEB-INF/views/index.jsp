@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-adljdalskgjsfklrefdffscdddfsf
+<div>
+	<div><input type="text" name="id" /></div>
+	<div><input type="password" name="password"/></div>
+	<div><button>Login</button></div>
+	<div><button><a href="member" >MemberJoin</a></button></div>
+</div>
 </body>
 </html>
