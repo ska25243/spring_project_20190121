@@ -29,7 +29,7 @@ public class MemberDAOTest {
 		vo.setId("user02");
 		vo.setEmail("111@naver.com");
 		vo.setPassword("123");
-		vo.setUser_name("¿”º∂±’");
+		vo.setUser_name("11111111");
 		
 		dao.insertMember(vo);
 	}

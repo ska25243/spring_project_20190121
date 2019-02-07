@@ -9,11 +9,7 @@
 <body>
 <form action="/member/join/" method="POST">
 <div>
-	<div>id : <input type="text" name="id" /></div>
-	<div>password : <input type="password" name="password"/></div>
-	<div>email : <input type="text" name="email"/></div>
-	<div>user_name : <input type="text" name="user_name"/></div>
-	<div><input type="submit" value="MemberJoinOk"/>
+보드리스트입니다.
 </div>
 </form>
 </body>

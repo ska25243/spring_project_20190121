@@ -10,4 +10,28 @@
 	INSERT INTO MEMBER (ID,USER_NAME,PASSWORD,EMAIL) VALUES
 	(#{id},#{user_name},#{password},#{email})
 	</insert>
+	
+	<select id="selectMember"  parameterType="org.isk.domain.MemberVO" resultType="Integer">
+	SELECT 
+		count(*) as cnt 
+	FROM MEMBER 
+	WHERE 1 = 1
+		AND ID = #{id} 
+		AND PASSWORD = #{password}
+	</select>
+	<update id="updateMember"  parameterType="org.isk.domain.MemberVO" >
+	UPDATE 
+		MEMBER
+			SET PASSWORD = #{password_after}
+		WHERE 1 = 1
+			AND ID = #{id}
+			AND PASSWORD = #{password}
+	</update>
+	<delete id="deleteMember" parameterType="org.isk.domain.MemberVO">
+	DELETE
+	FROM MEMBER
+	WHERE 1 = 1
+	AND ID = #{id}
+	AND PASSWORD = #{password}
+	</delete>
 </mapper>

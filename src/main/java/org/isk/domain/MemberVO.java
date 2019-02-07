@@ -6,6 +6,14 @@ public class MemberVO {
 	private String password;
 	private String email;
 	private String user_name;
+	private String password_after;
+	
+	public String getPassword_after() {
+		return password_after;
+	}
+	public void setPassword_after(String password_after) {
+		this.password_after = password_after;
+	}
 	public String getId() {
 		return id;
 	}

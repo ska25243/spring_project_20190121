@@ -25,5 +25,23 @@ public class MemberDAOimpl implements MemberDAO {
 		sqlSession.insert(namespace+".insertMember",vo);
 
 	}
+	@Override
+	public int selectMember(MemberVO vo) {
+		int cnt = sqlSession.selectOne(namespace+".selectMember",vo);
+		return cnt;
+		
+	}
+
+	@Override
+	public int updateMember(MemberVO vo) {
+		int cnt = sqlSession.update(namespace+".updateMember", vo);
+		return cnt;
+	}
+
+	@Override
+	public int deleteMember(MemberVO vo) {
+		int cnt = sqlSession.delete(namespace+".deleteMember",vo);
+		return cnt;
+	}
 
 }
